@@ -77,18 +77,18 @@
 
 <h3>⟦ 05 ⟧ &nbsp; GITHUB TELEMETRY</h3>
 
-<img src="https://github-readme-stats.vercel.app/api?username=cundari-sys&show_icons=true&hide_border=false&border_color=B026FF&border_radius=14&bg_color=0A0014&title_color=FF2BD6&icon_color=00F0FF&text_color=C9D1D9&ring_color=39FF14&text_bold=true" alt="GitHub Stats" width="49%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cundari-sys&layout=donut-vertical&hide_border=false&border_color=B026FF&border_radius=14&bg_color=0A0014&title_color=FF2BD6&text_color=C9D1D9" alt="Top Languages" width="49%" />
+<img src="./assets/stats.svg" width="49%" alt="GitHub Stats" />
+<img src="./assets/langs.svg" width="49%" alt="Top Languages" />
 
-<img src="https://streak-stats.demolab.com/?user=cundari-sys&hide_border=false&border=B026FF&border_radius=14&background=0A0014&stroke=B026FF&ring=00F0FF&fire=FF2BD6&currStreakNum=00F0FF&currStreakLabel=39FF14&sideNums=FF2BD6&sideLabels=C9D1D9&dates=8B949E" alt="GitHub Streak" width="98%" />
+<img src="./assets/streak.svg" width="98%" alt="GitHub Streak" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=cundari-sys&bg_color=0A0014&color=00F0FF&line=FF2BD6&point=39FF14&area=true&area_color=B026FF&hide_border=true&radius=14&title_color=00F0FF" alt="Contribution Graph" width="98%" />
+<img src="./assets/activity.svg" width="98%" alt="Contribution Graph" />
 
 <img src="./assets/divider.svg" width="100%" alt="" />
 
 <h3>⟦ 06 ⟧ &nbsp; TROPHY ROOM</h3>
 
-<img src="https://github-profile-trophy.vercel.app/?username=cundari-sys&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=12&margin-h=12" alt="GitHub Trophies" width="100%" />
+<img src="./assets/trophies.svg" width="100%" alt="GitHub Trophies" />
 
 <h3>⟦ 07 ⟧ &nbsp; THE SNAKE IS HUNGRY</h3>
 
