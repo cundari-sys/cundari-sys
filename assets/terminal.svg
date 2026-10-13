@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Terminal session: whoami - Enzo Pio Cundari, Computer Engineering at Unical">
+<defs>
+  <linearGradient id="tb" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#1b0836"/><stop offset="1" stop-color="#0d1b2e"/>
+  </linearGradient>
+  <linearGradient id="bd" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#00F0FF"/><stop offset="0.5" stop-color="#FF2BD6"/><stop offset="1" stop-color="#B026FF"/>
+  </linearGradient>
+  <filter id="sh" x="-5%" y="-10%" width="110%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#B026FF" flood-opacity="0.45"/></filter>
+</defs>
+<rect x="14" y="10" width="1172" height="276" rx="16" fill="#0A0014" stroke="url(#bd)" stroke-width="2" filter="url(#sh)"/>
+<path d="M14 26a16 16 0 0 1 16-16h1140a16 16 0 0 1 16 16v26H14z" fill="url(#tb)"/>
+<circle cx="44" cy="31" r="7" fill="#FF5F57"/><circle cx="68" cy="31" r="7" fill="#FEBC2E"/><circle cx="92" cy="31" r="7" fill="#28C840"/>
+<text x="600.0" y="36" text-anchor="middle" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="14" fill="#8B949E">enzo@unical: ~ (zsh)</text>
+
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="0.40s" repeatCount="indefinite"/>
+<text x="44" y="82" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" xml:space="preserve"><tspan fill="#39FF14">enzo@unical</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#00F0FF">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#E6EDF3">whoami</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="0.95s" repeatCount="indefinite"/>
+<text x="44" y="107" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" fill="#E6EDF3">Enzo Pio Cundari  -  Computer Engineering student</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="1.65s" repeatCount="indefinite"/>
+<text x="44" y="132" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" xml:space="preserve"><tspan fill="#39FF14">enzo@unical</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#00F0FF">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#E6EDF3">cat focus.txt</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="2.20s" repeatCount="indefinite"/>
+<text x="44" y="157" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" fill="#00F0FF">high-performance systems | clean architecture | fluid UIs</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="2.90s" repeatCount="indefinite"/>
+<text x="44" y="182" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" xml:space="preserve"><tspan fill="#39FF14">enzo@unical</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#00F0FF">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#E6EDF3">./stack --list</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="3.45s" repeatCount="indefinite"/>
+<text x="44" y="207" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" fill="#FF2BD6">Java  Python  C  React  Flutter  Dart  VHDL</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="4.15s" repeatCount="indefinite"/>
+<text x="44" y="232" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" xml:space="preserve"><tspan fill="#39FF14">enzo@unical</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#00F0FF">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#E6EDF3">play --volume=MAX</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.001;0.97;1" dur="16.0s" begin="4.70s" repeatCount="indefinite"/>
+<text x="44" y="257" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="15" fill="#39FF14">now playing: italian rap &amp; urban beats  |||||||||</text></g>
+<rect x="44" y="268" width="9" height="17" fill="#39FF14"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>
+</svg>

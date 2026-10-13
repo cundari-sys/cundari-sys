@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 36" width="1200" height="36" role="presentation" aria-hidden="true">
+<defs>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#00F0FF" stop-opacity="0"/>
+    <stop offset="0.25" stop-color="#00F0FF"/>
+    <stop offset="0.5" stop-color="#FF2BD6"/>
+    <stop offset="0.75" stop-color="#B026FF"/>
+    <stop offset="1" stop-color="#B026FF" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="pulse" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset="0.5" stop-color="#fff" stop-opacity="1"/>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="g" x="-10%" y="-400%" width="120%" height="900%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect x="60" y="16" width="1080" height="4" rx="2" fill="url(#line)" filter="url(#g)" opacity="0.8"/>
+<rect x="60" y="17" width="1080" height="2" rx="1" fill="url(#line)"/>
+<rect x="-160" y="15" width="160" height="6" rx="3" fill="url(#pulse)">
+  <animate attributeName="x" values="-160;1200" dur="3.2s" repeatCount="indefinite"/>
+</rect>
+<g>
+  <polygon points="600.0,6 612.0,18 600.0,30 588.0,18" fill="#0A0014" stroke="#FF2BD6" stroke-width="2">
+    <animateTransform attributeName="transform" type="rotate" values="0 600.0 18;360 600.0 18" dur="8s" repeatCount="indefinite"/>
+  </polygon>
+  <circle cx="600.0" cy="18" r="3.5" fill="#00F0FF"><animate attributeName="r" values="2.5;5;2.5" dur="1.6s" repeatCount="indefinite"/></circle>
+</g>
+<circle cx="70" cy="18" r="3" fill="#00F0FF"><animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/></circle>
+<circle cx="1130" cy="18" r="3" fill="#B026FF"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></circle>
+</svg>
