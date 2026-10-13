@@ -32,7 +32,7 @@
       <p><b>📌 QUICK SPECS</b></p>
       <ul>
         <li>🏛️ <b>University:</b> Unical — Ingegneria Informatica</li>
-        <li>🧬 <b>Core Stack:</b> Java · Python · C · React · Flutter · Dart</li>
+        <li>🧬 <b>Core Stack:</b> Java · Python · C · SQL · Flutter · Dart</li>
         <li>🧩 <b>Architecture:</b> Component-driven &amp; modular systems</li>
         <li>💻 <b>Hardware:</b> Apple ecosystem + custom Linux/Win rigs</li>
       </ul>
