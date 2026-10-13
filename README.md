@@ -52,14 +52,14 @@
 
 <h3>⟦ 03 ⟧ &nbsp; TECH ECOSYSTEM</h3>
 
-<img src="https://skillicons.dev/icons?i=java,python,c,dart,js,react,flutter,html,css,git,github,linux,apple,vscode,idea&theme=dark&perline=8" alt="Tech Stack" />
+<img src="https://skillicons.dev/icons?i=java,python,c,dart,js,sqlite,flutter,html,css,git,github,linux,apple,vscode,idea&theme=dark&perline=8" alt="Tech Stack" />
 
 <br/><br/>
 
 <img src="https://img.shields.io/badge/Java-0A0014?style=for-the-badge&logo=openjdk&logoColor=FF2BD6&color=FF2BD6" alt="Java" />
 <img src="https://img.shields.io/badge/Python-0A0014?style=for-the-badge&logo=python&logoColor=00F0FF&color=00F0FF" alt="Python" />
 <img src="https://img.shields.io/badge/C-0A0014?style=for-the-badge&logo=c&logoColor=B026FF&color=B026FF" alt="C" />
-<img src="https://img.shields.io/badge/React-0A0014?style=for-the-badge&logo=react&logoColor=00F0FF&color=00F0FF" alt="React" />
+<img src="https://img.shields.io/badge/SQL-0A0014?style=for-the-badge&logo=sqlite&logoColor=00F0FF&color=00F0FF" alt="SQL" />
 <img src="https://img.shields.io/badge/Flutter-0A0014?style=for-the-badge&logo=flutter&logoColor=39FF14&color=39FF14" alt="Flutter" />
 <img src="https://img.shields.io/badge/Dart-0A0014?style=for-the-badge&logo=dart&logoColor=FF2BD6&color=FF2BD6" alt="Dart" />
 <img src="https://img.shields.io/badge/VHDL-0A0014?style=for-the-badge&logoColor=B026FF&color=B026FF" alt="VHDL" />
