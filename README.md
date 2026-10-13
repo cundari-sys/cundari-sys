@@ -1,352 +1,112 @@
-#!/usr/bin/env python3
-"""
-Telemetry generator — builds the neon SVG cards of the profile README
-straight from the GitHub GraphQL API. No third-party services involved
-(no vercel apps that go down or get rate-limited), stdlib only.
+<div align="center">
 
-Env:
-  GH_USER   GitHub login            (default: cundari-sys)
-  GH_TOKEN  token for the API       (GITHUB_TOKEN works; a PAT with read:user
-                                     also counts private contributions)
-Run without a token to (re)generate the "awaiting first sync" placeholders.
-"""
-import os, sys, json, math, datetime as dt, urllib.request
-from xml.sax.saxutils import escape as esc
+<img src="./assets/header.svg" width="100%" alt="Enzo Pio Cundari — Computer Engineering @ Unical · Software Architect" />
 
-BG, CY, MG, PU, GR = "#0A0014", "#00F0FF", "#FF2BD6", "#B026FF", "#39FF14"
-TX, DIM = "#C9D1D9", "#8B949E"
-MONO = "ui-monospace,'SF Mono','Fira Code',Menlo,Consolas,'DejaVu Sans Mono',monospace"
-SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
-USER = os.environ.get("GH_USER", "cundari-sys")
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
+<a href="https://github.com/cundari-sys">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3200&pause=900&color=00F0FF&center=true&vCenter=true&width=760&height=50&lines=%3E+booting+enzo.os+...;%3E+compiling+clean+architecture+%E2%9C%94;%3E+rendering+fluid+interfaces+%E2%9C%94;%3E+volume+%3D+MAX+%F0%9F%8E%A7+%F0%9F%94%A5;%3E+SYSTEM+ONLINE+%E2%9C%A8" alt="Typing SVG" />
+</a>
 
+<br/>
 
-# ───────────────────────── shared drawing helpers ─────────────────────────
-def wrap(w, h, body, defs=""):
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" font-family="{MONO}">'
-        f"<defs>{defs}"
-        '<filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/>'
-        '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
-        f'<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{CY}"/>'
-        f'<stop offset=".5" stop-color="{PU}"/><stop offset="1" stop-color="{MG}"/></linearGradient>'
-        f'<linearGradient id="bgp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14002e"/>'
-        f'<stop offset="1" stop-color="{BG}"/></linearGradient>'
-        f'<linearGradient id="hz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{CY}"/>'
-        f'<stop offset=".5" stop-color="{PU}"/><stop offset="1" stop-color="{MG}"/></linearGradient>'
-        "</defs>"
-        f"{body}</svg>"
-    )
+<img src="https://komarev.com/ghpvc/?username=cundari-sys&style=for-the-badge&color=00F0FF&label=ACCESS+MATRIX&labelColor=0A0014" alt="Profile Views" />
+<img src="https://img.shields.io/badge/STATUS-SYSTEM_ONLINE-0A0014?style=for-the-badge&logo=statuspage&logoColor=39FF14&labelColor=0A0014&color=39FF14" alt="Status" />
+<img src="https://img.shields.io/badge/VIBE-MUSIC_@_100%25-0A0014?style=for-the-badge&logo=applemusic&logoColor=FF2BD6&labelColor=0A0014&color=FF2BD6" alt="Vibe" />
+<img src="https://img.shields.io/badge/BASE-ITALY-0A0014?style=for-the-badge&logo=googlemaps&logoColor=00F0FF&labelColor=0A0014&color=00F0FF" alt="Base" />
 
+<img src="./assets/divider.svg" width="100%" alt="" />
 
-def panel(w, h, title, right="", pending=False):
-    s = (
-        f'<rect x="1.5" y="1.5" width="{w-3}" height="{h-3}" rx="16" fill="url(#bgp)" stroke="url(#edge)" stroke-width="2"/>'
-        f'<rect x="1.5" y="1.5" width="{w-3}" height="{h-3}" rx="16" fill="none" stroke="{CY}" stroke-width="3" '
-        f'pathLength="1000" stroke-dasharray="70 930" stroke-linecap="round" filter="url(#glow)">'
-        '<animate attributeName="stroke-dashoffset" from="0" to="-1000" dur="8s" repeatCount="indefinite"/></rect>'
-        f'<circle cx="30" cy="34" r="5" fill="{GR}"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>'
-        f'<text x="46" y="39" font-size="15" font-weight="700" letter-spacing="3" fill="{CY}">{esc(title)}</text>'
-    )
-    if right:
-        s += f'<text x="{w-28}" y="39" font-size="13" text-anchor="end" fill="{DIM}">{esc(right)}</text>'
-    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    if pending:
-        s += (f'<text x="{w-28}" y="{h-16}" font-size="12" text-anchor="end" fill="{MG}" letter-spacing="1">'
-              'AWAITING FIRST SYNC · run the "Telemetry" workflow'
-              '<animate attributeName="opacity" values="1;.35;1" dur="2s" repeatCount="indefinite"/></text>')
-    else:
-        s += f'<text x="{w-28}" y="{h-16}" font-size="11" text-anchor="end" fill="#5b4a78">synced {stamp}</text>'
-    return s
+<h3>⟦ 01 ⟧ &nbsp; CORE IDENTITY</h3>
 
+<img src="./assets/terminal.svg" width="100%" alt="Terminal: whoami — Enzo Pio Cundari, Computer Engineering @ Unical" />
 
-def fade(delay):
-    return f'<animate attributeName="opacity" from="0" to="1" begin="{delay:.2f}s" dur=".5s" fill="freeze"/>'
+</div>
 
+<table align="center" border="0" width="100%">
+  <tr>
+    <td width="58%" valign="top">
+      <p>🎓 <b>Computer Engineering student</b> at <b>Università della Calabria</b>, obsessed with high-performance systems, clean architecture and fluid digital interfaces shaped by Apple's minimalist philosophy.</p>
+      <p>⚡ <b>Code &amp; Scale</b> — turning complex backend logic and algorithms into blazing-fast web and mobile apps.</p>
+      <p>🎧 <b>Fuel</b> — Italian rap and urban production at maximum volume, while the compiler sings.</p>
+    </td>
+    <td width="42%" valign="top">
+      <p><b>📌 QUICK SPECS</b></p>
+      <ul>
+        <li>🏛️ <b>University:</b> Unical — Ingegneria Informatica</li>
+        <li>🧬 <b>Core Stack:</b> Java · Python · C · React · Flutter · Dart</li>
+        <li>🧩 <b>Architecture:</b> Component-driven &amp; modular systems</li>
+        <li>💻 <b>Hardware:</b> Apple ecosystem + custom Linux/Win rigs</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-def n(v):
-    return f"{int(v):,}"
+<div align="center">
 
+<img src="./assets/divider.svg" width="100%" alt="" />
 
-# ───────────────────────── data ─────────────────────────
-def empty():
-    return dict(login=USER, pending=True, stars=0, forks=0, commits=0, prs=0, issues=0, reviews=0,
-                repos=0, followers=0, total=0, calendar=[], langs=[],
-                cur=0, cur_range="—", best=0, best_range="—", year_range="last 12 months")
+<h3>⟦ 02 ⟧ &nbsp; SOUNDTRACK OF THE CODE</h3>
 
+<img src="./assets/equalizer.svg" width="100%" alt="Animated equalizer — Italian rap and urban production at 100% volume" />
 
-QUERY = """query($login:String!){ user(login:$login){
- followers{totalCount} issues{totalCount} pullRequests{totalCount}
- contributionsCollection{ totalCommitContributions totalPullRequestReviewContributions
-   contributionCalendar{ totalContributions weeks{ contributionDays{ date contributionCount }}}}
- repositories(ownerAffiliations:OWNER, isFork:false, first:100, privacy:PUBLIC){ totalCount
-   nodes{ stargazerCount forkCount languages(first:8, orderBy:{field:SIZE,direction:DESC}){ edges{ size node{ name color }}}}}}}"""
+<img src="./assets/divider.svg" width="100%" alt="" />
 
+<h3>⟦ 03 ⟧ &nbsp; TECH ECOSYSTEM</h3>
 
-def fetch(token):
-    req = urllib.request.Request(
-        "https://api.github.com/graphql",
-        data=json.dumps({"query": QUERY, "variables": {"login": USER}}).encode(),
-        headers={"Authorization": f"bearer {token}", "Content-Type": "application/json", "User-Agent": "telemetry"},
-    )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        res = json.load(r)
-    if "errors" in res or not res.get("data", {}).get("user"):
-        raise RuntimeError(json.dumps(res)[:500])
-    u = res["data"]["user"]
-    cc = u["contributionsCollection"]
-    cal = [(d["date"], d["contributionCount"]) for w in cc["contributionCalendar"]["weeks"] for d in w["contributionDays"]]
-    cal.sort()
-    repos = u["repositories"]["nodes"]
-    langs = {}
-    for r_ in repos:
-        for e in r_["languages"]["edges"]:
-            nm = e["node"]["name"]
-            langs.setdefault(nm, [0, e["node"]["color"] or CY])
-            langs[nm][0] += e["size"]
-    ls = sorted(([k, v[1], v[0]] for k, v in langs.items()), key=lambda x: -x[2])
-    d = empty()
-    d.update(
-        pending=False, stars=sum(r_["stargazerCount"] for r_ in repos), forks=sum(r_["forkCount"] for r_ in repos),
-        commits=cc["totalCommitContributions"], prs=u["pullRequests"]["totalCount"], issues=u["issues"]["totalCount"],
-        reviews=cc["totalPullRequestReviewContributions"], repos=u["repositories"]["totalCount"],
-        followers=u["followers"]["totalCount"], total=cc["contributionCalendar"]["totalContributions"],
-        calendar=cal, langs=ls,
-    )
-    streaks(d)
-    return d
+<img src="https://skillicons.dev/icons?i=java,python,c,dart,js,react,flutter,html,css,git,github,linux,apple,vscode,idea&theme=dark&perline=8" alt="Tech Stack" />
 
+<br/><br/>
 
-def streaks(d):
-    cal = d["calendar"]
-    if not cal:
-        return
-    today = dt.date.today().isoformat()
-    best = cur = 0
-    best_end = best_start = None
-    run_start = None
-    runs = []
-    for day, c in cal:
-        if day > today:
-            continue
-        if c > 0:
-            if cur == 0:
-                run_start = day
-            cur += 1
-            runs.append((cur, run_start, day))
-        else:
-            cur = 0
-    if runs:
-        b = max(runs, key=lambda r: r[0])
-        best, best_start, best_end = b
-    # current streak: run that ends today or yesterday
-    yday = (dt.date.today() - dt.timedelta(days=1)).isoformat()
-    curr = [r for r in runs if r[2] in (today, yday)]
-    c = max(curr, key=lambda r: r[1], default=None)
-    fmt = lambda s: dt.date.fromisoformat(s).strftime("%b %d, %Y").replace(" 0", " ")
-    d["best"] = best
-    d["best_range"] = f"{fmt(best_start)} – {fmt(best_end)}" if best else "—"
-    if c:
-        # the run list holds every prefix; pick the longest prefix ending on that day
-        end = c[2]
-        full = max((r for r in runs if r[2] == end), key=lambda r: r[0])
-        d["cur"] = full[0]
-        d["cur_range"] = f"{fmt(full[1])} – {fmt(full[2])}"
-    else:
-        d["cur"], d["cur_range"] = 0, "—"
-    d["year_range"] = f"{fmt(cal[0][0])} – {fmt(cal[-1][0])}"
+<img src="https://img.shields.io/badge/Java-0A0014?style=for-the-badge&logo=openjdk&logoColor=FF2BD6&color=FF2BD6" alt="Java" />
+<img src="https://img.shields.io/badge/Python-0A0014?style=for-the-badge&logo=python&logoColor=00F0FF&color=00F0FF" alt="Python" />
+<img src="https://img.shields.io/badge/C-0A0014?style=for-the-badge&logo=c&logoColor=B026FF&color=B026FF" alt="C" />
+<img src="https://img.shields.io/badge/React-0A0014?style=for-the-badge&logo=react&logoColor=00F0FF&color=00F0FF" alt="React" />
+<img src="https://img.shields.io/badge/Flutter-0A0014?style=for-the-badge&logo=flutter&logoColor=39FF14&color=39FF14" alt="Flutter" />
+<img src="https://img.shields.io/badge/Dart-0A0014?style=for-the-badge&logo=dart&logoColor=FF2BD6&color=FF2BD6" alt="Dart" />
+<img src="https://img.shields.io/badge/VHDL-0A0014?style=for-the-badge&logoColor=B026FF&color=B026FF" alt="VHDL" />
+<img src="https://img.shields.io/badge/Linux-0A0014?style=for-the-badge&logo=linux&logoColor=39FF14&color=39FF14" alt="Linux" />
 
+<img src="./assets/divider.svg" width="100%" alt="" />
 
-# ───────────────────────── cards ─────────────────────────
-def grade(score):
-    for t, g in [(2000, "S"), (1000, "A+"), (500, "A"), (250, "B+"), (120, "B"), (50, "C+")]:
-        if score >= t:
-            return g
-    return "C"
+<h3>⟦ 04 ⟧ &nbsp; FEATURED SYSTEMS</h3>
 
+<img src="./assets/card-algovis.svg" width="32%" alt="AlgoVis — AlgoVision.OS" />
+<img src="./assets/card-ervision.svg" width="32%" alt="ERvision / DBVision" />
+<img src="./assets/card-unitrack.svg" width="32%" alt="UniTrack" />
 
-def render_stats(d):
-    W, H = 600, 310
-    score = d["commits"] + 3 * d["prs"] + 2 * d["reviews"] + d["issues"] + 4 * d["stars"] + 2 * d["followers"] + d["repos"]
-    g = grade(score)
-    frac = min(1, score / 2000) * 100
-    rows = [("STARS EARNED", d["stars"], MG), ("COMMITS / 12 MO", d["commits"], CY), ("PULL REQUESTS", d["prs"], PU),
-            ("ISSUES OPENED", d["issues"], GR), ("CODE REVIEWS", d["reviews"], CY), ("PUBLIC REPOS", d["repos"], MG),
-            ("FOLLOWERS", d["followers"], PU)]
-    b = panel(W, H, "TELEMETRY", "@" + d["login"], d["pending"])
-    for i, (lab, val, col) in enumerate(rows):
-        y = 92 + i * 29
-        b += (f'<g opacity="0">{fade(0.15 * i)}<rect x="30" y="{y-11}" width="8" height="8" rx="2" fill="{col}" filter="url(#glow)"/>'
-              f'<text x="50" y="{y-3}" font-size="14" fill="{TX}" letter-spacing="1">{lab}</text>'
-              f'<text x="330" y="{y-3}" font-size="16" font-weight="700" text-anchor="end" fill="{col}">{n(val)}</text>'
-              f'<line x1="50" y1="{y+7}" x2="330" y2="{y+7}" stroke="#2a1245" stroke-width="1"/></g>')
-    cx, cy, r = 468, 168, 66
-    b += (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#24103f" stroke-width="12"/>'
-          f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="url(#edge)" stroke-width="12" stroke-linecap="round" '
-          f'pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 {cx} {cy})" filter="url(#glow)">'
-          f'<animate attributeName="stroke-dasharray" from="0 100" to="{frac:.1f} 100" dur="1.8s" fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1" keyTimes="0;1"/></circle>'
-          f'<text x="{cx}" y="{cy+16}" font-size="46" font-weight="800" text-anchor="middle" fill="url(#hz)" font-family="{SANS}">{g}</text>'
-          f'<text x="{cx}" y="{cy-26}" font-size="11" letter-spacing="3" text-anchor="middle" fill="{DIM}">RANK</text>'
-          f'<text x="{cx}" y="{cy+r+30}" font-size="12" letter-spacing="2" text-anchor="middle" fill="{DIM}">SCORE {n(score)}</text>')
-    return wrap(W, H, b)
+<img src="./assets/divider.svg" width="100%" alt="" />
 
+<h3>⟦ 05 ⟧ &nbsp; GITHUB TELEMETRY</h3>
 
-def render_langs(d):
-    W, H = 600, 310
-    b = panel(W, H, "LANGUAGE MATRIX", "by code size", d["pending"])
-    langs = d["langs"][:]
-    total = sum(x[2] for x in langs) or 1
-    top = langs[:6]
-    rest = sum(x[2] for x in langs[6:])
-    if rest:
-        top.append(["Other", DIM, rest])
-    x0, bw = 30, 540
-    clip = (f'<clipPath id="lb"><rect x="{x0}" y="70" width="{bw}" height="16" rx="8"/></clipPath>'
-            f'<clipPath id="lr"><rect x="{x0}" y="60" width="0" height="36"><animate attributeName="width" from="0" to="{bw}" dur="1.4s" fill="freeze" calcMode="spline" keySplines=".2 .8 .2 1" keyTimes="0;1"/></rect></clipPath>')
-    if not langs:
-        b += f'<rect x="{x0}" y="70" width="{bw}" height="16" rx="8" fill="#24103f"/>'
-        b += f'<text x="{x0}" y="130" font-size="14" fill="{DIM}">No data yet — pushed code will show up here.</text>'
-        return wrap(W, H, b, clip)
-    b += f'<g clip-path="url(#lr)"><g clip-path="url(#lb)">'
-    x = x0
-    for nm, col, sz in top:
-        w = bw * sz / total
-        b += f'<rect x="{x:.1f}" y="70" width="{w+0.6:.1f}" height="16" fill="{col}"/>'
-        x += w
-    b += "</g></g>"
-    for i, (nm, col, sz) in enumerate(top):
-        cx_ = x0 if i % 2 == 0 else 320
-        y = 128 + (i // 2) * 52
-        pct = 100 * sz / total
-        b += (f'<g opacity="0">{fade(0.2 + 0.12 * i)}<circle cx="{cx_+6}" cy="{y-5}" r="6" fill="{col}" filter="url(#glow)"/>'
-              f'<text x="{cx_+22}" y="{y}" font-size="15" fill="{TX}" font-weight="700">{esc(nm)}</text>'
-              f'<text x="{cx_+250}" y="{y}" font-size="15" text-anchor="end" fill="{col}">{pct:.1f}%</text>'
-              f'<rect x="{cx_}" y="{y+10}" width="250" height="5" rx="2.5" fill="#24103f"/>'
-              f'<rect x="{cx_}" y="{y+10}" width="0" height="5" rx="2.5" fill="{col}"><animate attributeName="width" from="0" to="{max(3, 250*pct/100):.1f}" begin="{0.2+0.12*i:.2f}s" dur="1s" fill="freeze"/></rect></g>')
-    return wrap(W, H, b, clip)
+<img src="https://github-readme-stats.vercel.app/api?username=cundari-sys&show_icons=true&hide_border=false&border_color=B026FF&border_radius=14&bg_color=0A0014&title_color=FF2BD6&icon_color=00F0FF&text_color=C9D1D9&ring_color=39FF14&text_bold=true" alt="GitHub Stats" width="49%" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cundari-sys&layout=donut-vertical&hide_border=false&border_color=B026FF&border_radius=14&bg_color=0A0014&title_color=FF2BD6&text_color=C9D1D9" alt="Top Languages" width="49%" />
 
+<img src="https://streak-stats.demolab.com/?user=cundari-sys&hide_border=false&border=B026FF&border_radius=14&background=0A0014&stroke=B026FF&ring=00F0FF&fire=FF2BD6&currStreakNum=00F0FF&currStreakLabel=39FF14&sideNums=FF2BD6&sideLabels=C9D1D9&dates=8B949E" alt="GitHub Streak" width="98%" />
 
-def render_streak(d):
-    W, H = 1200, 250
-    b = panel(W, H, "CONTRIBUTION STREAK", d["year_range"], d["pending"])
-    cols = [(200, d["total"], "CONTRIBUTIONS", "last 12 months", CY),
-            (600, d["cur"], "CURRENT STREAK", d["cur_range"], MG),
-            (1000, d["best"], "LONGEST STREAK", d["best_range"], GR)]
-    for x in (400, 800):
-        b += f'<line x1="{x}" y1="70" x2="{x}" y2="205" stroke="#2a1245" stroke-width="2" stroke-dasharray="3 7"/>'
-    for i, (cx, val, lab, sub, col) in enumerate(cols):
-        if i == 1:
-            r = 58
-            frac = 0 if not d["best"] else min(1, d["cur"] / d["best"]) * 100
-            b += (f'<circle cx="{cx}" cy="128" r="{r}" fill="none" stroke="#24103f" stroke-width="9"/>'
-                  f'<circle cx="{cx}" cy="128" r="{r}" fill="none" stroke="{col}" stroke-width="9" stroke-linecap="round" pathLength="100" '
-                  f'stroke-dasharray="0 100" transform="rotate(-90 {cx} 128)" filter="url(#glow)">'
-                  f'<animate attributeName="stroke-dasharray" from="0 100" to="{frac:.1f} 100" dur="1.8s" fill="freeze"/></circle>'
-                  f'<text x="{cx}" y="{128+16}" font-size="46" font-weight="800" text-anchor="middle" fill="{col}" font-family="{SANS}">{n(val)}</text>'
-                  f'<text x="{cx}" y="{128-24}" font-size="11" letter-spacing="3" text-anchor="middle" fill="{DIM}">DAYS</text>')
-            b += f'<text x="{cx}" y="214" font-size="13" letter-spacing="3" text-anchor="middle" fill="{col}" font-weight="700">{lab}</text>'
-            b += f'<text x="{cx}" y="232" font-size="12" text-anchor="middle" fill="{DIM}">{esc(sub)}</text>'
-        else:
-            b += (f'<text x="{cx}" y="150" font-size="64" font-weight="800" text-anchor="middle" fill="{col}" font-family="{SANS}" filter="url(#glow)" opacity="0">{n(val)}{fade(0.3*i)}</text>'
-                  f'<text x="{cx}" y="190" font-size="13" letter-spacing="3" text-anchor="middle" fill="{col}" font-weight="700">{lab}</text>'
-                  f'<text x="{cx}" y="212" font-size="12" text-anchor="middle" fill="{DIM}">{esc(sub)}</text>')
-    return wrap(W, H, b)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=cundari-sys&bg_color=0A0014&color=00F0FF&line=FF2BD6&point=39FF14&area=true&area_color=B026FF&hide_border=true&radius=14&title_color=00F0FF" alt="Contribution Graph" width="98%" />
 
+<img src="./assets/divider.svg" width="100%" alt="" />
 
-def smooth(pts, ytop, ybase, t=0.17):
-    d_ = f"M{pts[0][0]:.1f},{pts[0][1]:.1f}"
-    cl = lambda y: max(ytop, min(ybase, y))
-    for i in range(len(pts) - 1):
-        p0 = pts[i - 1] if i else pts[i]
-        p1, p2 = pts[i], pts[i + 1]
-        p3 = pts[i + 2] if i + 2 < len(pts) else p2
-        c1 = (p1[0] + (p2[0] - p0[0]) * t, cl(p1[1] + (p2[1] - p0[1]) * t))
-        c2 = (p2[0] - (p3[0] - p1[0]) * t, cl(p2[1] - (p3[1] - p1[1]) * t))
-        d_ += f" C{c1[0]:.1f},{c1[1]:.1f} {c2[0]:.1f},{c2[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}"
-    return d_
+<h3>⟦ 06 ⟧ &nbsp; TROPHY ROOM</h3>
 
+<img src="https://github-profile-trophy.vercel.app/?username=cundari-sys&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=12&margin-h=12" alt="GitHub Trophies" width="100%" />
 
-def render_activity(d):
-    W, H = 1200, 300
-    days = [c for _, c in d["calendar"][-120:]] or [0] * 120
-    dates = [x for x, _ in d["calendar"][-120:]]
-    b = panel(W, H, "ACTIVITY WAVEFORM", f"last {len(days)} days · {n(sum(days))} contributions", d["pending"])
-    x0, x1, yt, yb = 56, 1146, 84, 244
-    mx = max(max(days), 4)
-    step = -(-mx // 4)
-    mx = step * 4
-    for k in range(5):
-        y = yb - (yb - yt) * k / 4
-        b += (f'<line x1="{x0}" y1="{y:.1f}" x2="{x1}" y2="{y:.1f}" stroke="#24103f" stroke-width="1"/>'
-              f'<text x="{x0-10}" y="{y+4:.1f}" font-size="11" text-anchor="end" fill="{DIM}">{step*k}</text>')
-    pts = [(x0 + (x1 - x0) * i / max(1, len(days) - 1), yb - (yb - yt) * v / mx) for i, v in enumerate(days)]
-    line = smooth(pts, yt, yb)
-    area = f"{line} L{pts[-1][0]:.1f},{yb} L{pts[0][0]:.1f},{yb} Z"
-    seen = set()
-    for i, dd in enumerate(dates):
-        m = dd[:7]
-        if m not in seen and dd[8:10] <= "07":
-            seen.add(m)
-            lab = dt.date.fromisoformat(dd).strftime("%b").upper()
-            b += f'<text x="{pts[i][0]:.1f}" y="{yb+22}" font-size="11" text-anchor="middle" fill="{DIM}" letter-spacing="1">{lab}</text>'
-    defs = (f'<linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{MG}" stop-opacity=".55"/>'
-            f'<stop offset=".6" stop-color="{PU}" stop-opacity=".18"/><stop offset="1" stop-color="{PU}" stop-opacity="0"/></linearGradient>'
-            f'<clipPath id="rv"><rect x="{x0-4}" y="60" width="0" height="220"><animate attributeName="width" from="0" to="{x1-x0+12}" dur="2.2s" fill="freeze" calcMode="spline" keySplines=".3 .7 .2 1" keyTimes="0;1"/></rect></clipPath>')
-    b += (f'<g clip-path="url(#rv)"><path d="{area}" fill="url(#ar)"/></g>'
-          f'<path d="{line}" fill="none" stroke="url(#hz)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" pathLength="1000" '
-          f'stroke-dasharray="1000" stroke-dashoffset="1000" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="1000" to="0" dur="2.2s" fill="freeze" calcMode="spline" keySplines=".3 .7 .2 1" keyTimes="0;1"/></path>'
-          f'<circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="5" fill="{GR}" filter="url(#glow)" opacity="0">{fade(2.2)}</circle>'
-          f'<circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="5" fill="none" stroke="{GR}" stroke-width="2"><animate attributeName="r" values="5;18" dur="1.8s" begin="2.2s" repeatCount="indefinite"/>'
-          f'<animate attributeName="opacity" values=".9;0" dur="1.8s" begin="2.2s" repeatCount="indefinite"/></circle>')
-    return wrap(W, H, b, defs)
+<h3>⟦ 07 ⟧ &nbsp; THE SNAKE IS HUNGRY</h3>
 
+<img src="https://raw.githubusercontent.com/cundari-sys/cundari-sys/output/github-snake-dark.svg" alt="Contribution snake" width="100%" />
 
-TIERS = [("LOCKED", "#3a2a52"), ("BRONZE", "#d98b4a"), ("SILVER", "#d5dde8"), ("GOLD", "#ffd23f"), ("PLATINUM", CY)]
+<img src="./assets/divider.svg" width="100%" alt="" />
 
+<h3>⟦ 08 ⟧ &nbsp; OPEN CHANNELS</h3>
 
-def render_trophies(d):
-    W, H = 1200, 250
-    items = [("STARS", d["stars"], [1, 10, 50, 200]), ("COMMITS", d["commits"], [50, 200, 500, 1000]),
-             ("PULL REQ", d["prs"], [1, 10, 50, 150]), ("REPOS", d["repos"], [3, 10, 25, 50]),
-             ("FOLLOWERS", d["followers"], [1, 10, 50, 200]), ("STREAK", d["best"], [3, 7, 30, 100]),
-             ("ISSUES", d["issues"], [1, 10, 40, 100])]
-    b = panel(W, H, "TROPHY ROOM", "tiers unlock as numbers grow", d["pending"])
-    defs = ""
-    gap = W / len(items)
-    for i, (lab, val, th) in enumerate(items):
-        tier = sum(val >= t for t in th)
-        name, col = TIERS[tier]
-        cx, cy, r = gap * (i + .5), 118, 46
-        pts = " ".join(f"{cx + r*math.cos(math.radians(60*k-90)):.1f},{cy + r*math.sin(math.radians(60*k-90)):.1f}" for k in range(6))
-        defs += (f'<clipPath id="hx{i}"><polygon points="{pts}"/></clipPath>'
-                 f'<linearGradient id="tg{i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{col}" stop-opacity="{.95 if tier else .35}"/>'
-                 f'<stop offset="1" stop-color="{col}" stop-opacity="{.35 if tier else .15}"/></linearGradient>')
-        nxt = th[tier] if tier < 4 else None
-        glow = ' filter="url(#glow)"' if tier else ""
-        nxt_txt = "" if nxt is None else f" · next {n(nxt)}"
-        b += (f'<g><animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="{3+i*.35:.2f}s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".4 0 .6 1;.4 0 .6 1"/>'
-              f'<polygon points="{pts}" fill="url(#tg{i})" stroke="{col}" stroke-width="3" stroke-linejoin="round"{glow}/>'
-              f'<g clip-path="url(#hx{i})"><rect x="{cx-90}" y="{cy-70}" width="22" height="140" fill="#fff" opacity="{.28 if tier else .08}" transform="rotate(20 {cx} {cy})">'
-              f'<animate attributeName="x" values="{cx-120};{cx+120};{cx+120}" keyTimes="0;.35;1" dur="{4+i*.4:.1f}s" repeatCount="indefinite"/></rect></g>'
-              f'<text x="{cx}" y="{cy+9}" font-size="26" font-weight="800" text-anchor="middle" fill="{"#0A0014" if tier >= 2 else TX}" font-family="{SANS}">{n(val)}</text></g>'
-              f'<text x="{cx}" y="{cy+r+32}" font-size="13" letter-spacing="3" text-anchor="middle" fill="{TX}" font-weight="700">{lab}</text>'
-              f'<text x="{cx}" y="{cy+r+50}" font-size="11" letter-spacing="2" text-anchor="middle" fill="{col}">{name}{nxt_txt}</text>')
-    return wrap(W, H, b, defs)
+<a href="https://github.com/cundari-sys"><img src="https://img.shields.io/badge/GITHUB-0A0014?style=for-the-badge&logo=github&logoColor=B026FF&color=B026FF" alt="GitHub" /></a>
+<a href="mailto:enzo.cundari@studenti.unical.it"><img src="https://img.shields.io/badge/EMAIL-0A0014?style=for-the-badge&logo=gmail&logoColor=FF2BD6&color=FF2BD6" alt="Email" /></a>
 
+<br/><br/>
 
-def render_all(d, out=OUT):
-    os.makedirs(out, exist_ok=True)
-    for name, fn in [("stats", render_stats), ("langs", render_langs), ("streak", render_streak),
-                     ("activity", render_activity), ("trophies", render_trophies)]:
-        with open(os.path.join(out, f"{name}.svg"), "w", encoding="utf-8") as f:
-            f.write(fn(d))
-        print("wrote", name + ".svg")
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&italic=true&size=17&duration=4000&pause=1500&color=FF2BD6&center=true&vCenter=true&width=620&height=36&lines=%22Simplicity+is+the+ultimate+sophistication.%22" alt="Quote" />
 
+<sub>◢ Built by <b>Enzo Pio Cundari</b> ◣</sub>
 
-if __name__ == "__main__":
-    tok = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
-    if not tok:
-        print("no token → writing placeholders")
-        render_all(empty())
-        sys.exit(0)
-    render_all(fetch(tok))
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF2BD6,50:B026FF,100:00F0FF&height=120&section=footer&animation=twinkling" width="100%" />
+
+</div>
