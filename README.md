@@ -9,9 +9,9 @@
 <br/>
 
 <img src="https://komarev.com/ghpvc/?username=cundari-sys&style=for-the-badge&color=00F0FF&label=ACCESS+MATRIX&labelColor=0A0014" alt="Profile Views" />
-<img src="https://img.shields.io/badge/STATUS-SYSTEM_ONLINE-0A0014?style=for-the-badge&logo=statuspage&logoColor=39FF14&labelColor=0A0014&color=39FF14" />
-<img src="https://img.shields.io/badge/VIBE-MUSIC_@_100%25-0A0014?style=for-the-badge&logo=applemusic&logoColor=FF2BD6&labelColor=0A0014&color=FF2BD6" />
-<img src="https://img.shields.io/badge/BASE-ITALY-0A0014?style=for-the-badge&logo=googlemaps&logoColor=00F0FF&labelColor=0A0014&color=00F0FF" />
+<img src="https://img.shields.io/badge/STATUS-SYSTEM_ONLINE-0A0014?style=for-the-badge&logo=statuspage&logoColor=39FF14&labelColor=0A0014&color=39FF14" alt="Status" />
+<img src="https://img.shields.io/badge/VIBE-MUSIC_@_100%25-0A0014?style=for-the-badge&logo=applemusic&logoColor=FF2BD6&labelColor=0A0014&color=FF2BD6" alt="Vibe" />
+<img src="https://img.shields.io/badge/BASE-ITALY-0A0014?style=for-the-badge&logo=googlemaps&logoColor=00F0FF&labelColor=0A0014&color=00F0FF" alt="Base" />
 
 <img src="./assets/divider.svg" width="100%" alt="" />
 
@@ -52,18 +52,18 @@
 
 <h3>⟦ 03 ⟧ &nbsp; TECH ECOSYSTEM</h3>
 
-<img src="https://skillicons.dev/icons?i=java,python,c,dart,js,react,flutter,html,css,vhdl,git,github,linux,apple,vscode,idea&theme=dark&perline=8" alt="Tech Stack" />
+<img src="https://skillicons.dev/icons?i=java,python,c,dart,js,react,flutter,html,css,git,github,linux,apple,vscode,idea&theme=dark&perline=8" alt="Tech Stack" />
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/Java-0A0014?style=for-the-badge&logo=openjdk&logoColor=FF2BD6&color=FF2BD6" />
-<img src="https://img.shields.io/badge/Python-0A0014?style=for-the-badge&logo=python&logoColor=00F0FF&color=00F0FF" />
-<img src="https://img.shields.io/badge/C-0A0014?style=for-the-badge&logo=c&logoColor=B026FF&color=B026FF" />
-<img src="https://img.shields.io/badge/React-0A0014?style=for-the-badge&logo=react&logoColor=00F0FF&color=00F0FF" />
-<img src="https://img.shields.io/badge/Flutter-0A0014?style=for-the-badge&logo=flutter&logoColor=39FF14&color=39FF14" />
-<img src="https://img.shields.io/badge/Dart-0A0014?style=for-the-badge&logo=dart&logoColor=FF2BD6&color=FF2BD6" />
-<img src="https://img.shields.io/badge/VHDL-0A0014?style=for-the-badge&logo=circuitverse&logoColor=B026FF&color=B026FF" />
-<img src="https://img.shields.io/badge/Linux-0A0014?style=for-the-badge&logo=linux&logoColor=39FF14&color=39FF14" />
+<img src="https://img.shields.io/badge/Java-0A0014?style=for-the-badge&logo=openjdk&logoColor=FF2BD6&color=FF2BD6" alt="Java" />
+<img src="https://img.shields.io/badge/Python-0A0014?style=for-the-badge&logo=python&logoColor=00F0FF&color=00F0FF" alt="Python" />
+<img src="https://img.shields.io/badge/C-0A0014?style=for-the-badge&logo=c&logoColor=B026FF&color=B026FF" alt="C" />
+<img src="https://img.shields.io/badge/React-0A0014?style=for-the-badge&logo=react&logoColor=00F0FF&color=00F0FF" alt="React" />
+<img src="https://img.shields.io/badge/Flutter-0A0014?style=for-the-badge&logo=flutter&logoColor=39FF14&color=39FF14" alt="Flutter" />
+<img src="https://img.shields.io/badge/Dart-0A0014?style=for-the-badge&logo=dart&logoColor=FF2BD6&color=FF2BD6" alt="Dart" />
+<img src="https://img.shields.io/badge/VHDL-0A0014?style=for-the-badge&logoColor=B026FF&color=B026FF" alt="VHDL" />
+<img src="https://img.shields.io/badge/Linux-0A0014?style=for-the-badge&logo=linux&logoColor=39FF14&color=39FF14" alt="Linux" />
 
 <img src="./assets/divider.svg" width="100%" alt="" />
 
